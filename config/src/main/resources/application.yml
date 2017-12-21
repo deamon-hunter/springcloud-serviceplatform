@@ -1,0 +1,28 @@
+server:
+  port: 9100
+
+eureka:
+  instance:
+    hostname: discovery
+    prefer-ip-address: true
+    metadata-map:
+      user.name: ${security.user.name}
+      user.password: ${security.user.password}
+  client:
+    service-url:
+      defaultZone: http://user:${REGISTRY_SERVER_PASSWORD:password}@discovery:8761/eureka/
+
+spring:
+  cloud:
+    config:
+      server:
+        git:
+          uri: http://47.95.218.37:81/config-repo/cloud-config-repo.git
+          password: hehaiyang
+          username: hehaiyang
+          search-paths: config-repo/
+
+security:
+  user:
+    name: user
+    password: ${CONFIG_SERVER_PASSWORD:password}

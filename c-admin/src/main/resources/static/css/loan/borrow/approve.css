@@ -1,0 +1,35 @@
+.head-title {
+    font-weight: 500;
+    color: #000;
+    font-size: 15px;
+    height: 35px;
+    line-height: 35px;
+}
+.row-padding-10{
+    padding:10px 0;
+}
+
+.padding-bottom-15{
+    padding-bottom: 15px;
+}
+.border-top{
+    border-top:solid 1px #999;
+    padding-top: 10px;
+}
+.f-title{
+    display: inline-block;
+    width: 80px;
+    font-weight: bold;
+}
+.margin-right-10{
+    margin-right: 10%;
+}
+.small-img{
+    max-width: 220px;
+}
+.marigin-right-5{
+    margin-right:5%;
+}
+.padding-top-15{
+    padding-top:15px;
+}

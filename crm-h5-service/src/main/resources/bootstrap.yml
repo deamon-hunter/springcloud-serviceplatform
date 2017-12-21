@@ -1,0 +1,27 @@
+server:
+  port: 9005
+
+
+spring:
+  application:
+    # 服务名称
+    name: cigarette-h5
+  cloud:
+    config:
+      uri: http://config:9100
+      profile: ${PROFILE:dev}
+      username: user
+      fail-fast: true
+      password: ${CONFIG_SERVER_PASSWORD:password}
+      retry:
+        initial-interval: 2000
+        max-interval: 10000
+        multiplier: 2
+        max-attempts: 10
+  jackson:
+    default-property-inclusion: non_null
+
+
+
+
+

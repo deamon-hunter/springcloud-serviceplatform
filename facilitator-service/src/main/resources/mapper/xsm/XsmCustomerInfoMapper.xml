@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.gmsj.xsm.mapper.XsmCustomerInfoMapper" >
+  <resultMap id="BaseResultMap" type="com.gmsj.xsm.model.XsmCustomerInfo" >
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="cust_name" property="custName" jdbcType="VARCHAR" />
+    <result column="short_name" property="shortName" jdbcType="VARCHAR" />
+    <result column="cust_code" property="custCode" jdbcType="VARCHAR" />
+    <result column="short_code" property="shortCode" jdbcType="VARCHAR" />
+    <result column="license_code" property="licenseCode" jdbcType="VARCHAR" />
+    <result column="order_tel" property="orderTel" jdbcType="VARCHAR" />
+    <result column="manager" property="manager" jdbcType="VARCHAR" />
+    <result column="cust_tel" property="custTel" jdbcType="VARCHAR" />
+    <result column="busi_addr" property="busiAddr" jdbcType="VARCHAR" />
+    <result column="sale_center_name" property="saleCenterName" jdbcType="VARCHAR" />
+    <result column="sale_dept_name" property="saleDeptName" jdbcType="VARCHAR" />
+    <result column="slsman_name" property="slsmanName" jdbcType="VARCHAR" />
+    <result column="slsman_tel" property="slsmanTel" jdbcType="VARCHAR" />
+    <result column="rtl_cust_type" property="rtlCustType" jdbcType="VARCHAR" />
+    <result column="cust_geo_type" property="custGeoType" jdbcType="VARCHAR" />
+    <result column="cust_size" property="custSize" jdbcType="VARCHAR" />
+    <result column="cust_lmt_type" property="custLmtType" jdbcType="VARCHAR" />
+    <result column="periods" property="periods" jdbcType="VARCHAR" />
+    <result column="cust_type" property="custType" jdbcType="VARCHAR" />
+    <result column="bank_type" property="bankType" jdbcType="VARCHAR" />
+    <result column="bank_account" property="bankAccount" jdbcType="VARCHAR" />
+    <result column="create_by" property="createBy" jdbcType="BIGINT" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="update_by" property="updateBy" jdbcType="BIGINT" />
+    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+</mapper>

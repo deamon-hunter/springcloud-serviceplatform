@@ -1,0 +1,33 @@
+.gradle
+/build/
+!gradle/wrapper/gradle-wrapper.jar
+target
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+
+rebel.xml
+
+._.DS_Store
+.DS_Store
+node_modules/
+bower_components/
+
+*.log
+#log
+*.log.*
+logs/
+
+*velocity.log*

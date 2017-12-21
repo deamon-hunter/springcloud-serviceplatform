@@ -1,0 +1,21 @@
+server:
+  port: 8761
+
+eureka:
+  instance:
+    hostname: discovery
+    prefer-ip-address: true
+  client:
+    # 注册中心不需要注册自己
+    registerWithEureka: false
+    # 注册中心也不需要检索服务
+    fetchRegistry: false
+    service-url:
+      defaultZone: http://${security.user.name}:${security.user.password}@${eureka.instance.hostname}:${server.port}/eureka/
+
+security:
+  user:
+    name: user
+    password: ${REGISTRY_SERVER_PASSWORD:password}
+
+

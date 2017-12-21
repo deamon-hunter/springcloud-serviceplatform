@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.gmsj.user.mapper.RepaymentOrderMapper">
+    <select id="getRepaymentOrderList" resultType="com.gmsj.core.business.vo.cigar.RepaymentOrderVO">
+        select
+        a.order_number orderNumber,
+        a.borrow_id borrowId,
+        a.amount amount,
+        a.create_time createTime,
+        a.repay_expire_date repayExpireDate,
+        a.repay_status repayStatus,
+        a.repay_start_date repayStartDate,
+        b.total_repay totalRepay,
+        b.service_charge serviceCharge,
+        b.add_amount addAmount
+        from tbl_order a left join tbl_order_education b
+        on a.id = b.order_id
+        <where>
+            <if test="orderNumber != null and orderNumber!=''">
+                and a.order_number = #{orderNumber}
+            </if>
+        </where>
+    </select>
+</mapper>

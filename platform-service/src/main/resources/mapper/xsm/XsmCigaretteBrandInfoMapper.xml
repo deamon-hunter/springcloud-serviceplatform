@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.gmsj.xsm.mapper.XsmCigaretteBrandInfoMapper" >
+  <resultMap id="BaseResultMap" type="com.gmsj.xsm.model.XsmCigaretteBrandInfo" >
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="cigarette_brand" property="cigaretteBrand" jdbcType="VARCHAR" />
+    <result column="suggested_retail_price" property="suggestedRetailPrice" jdbcType="DECIMAL" />
+    <result column="trade_price" property="tradePrice" jdbcType="DECIMAL" />
+    <result column="bar_code" property="barCode" jdbcType="VARCHAR" />
+    <result column="box_code" property="boxCode" jdbcType="VARCHAR" />
+    <result column="cigarette_type" property="cigaretteType" jdbcType="VARCHAR" />
+    <result column="tar_quantity" property="tarQuantity" jdbcType="VARCHAR" />
+    <result column="nicotine_quantity" property="nicotineQuantity" jdbcType="VARCHAR" />
+    <result column="monoxide_quantity" property="monoxideQuantity" jdbcType="VARCHAR" />
+    <result column="subject_color" property="subjectColor" jdbcType="VARCHAR" />
+    <result column="filter_color" property="filterColor" jdbcType="VARCHAR" />
+    <result column="packaging_form" property="packagingForm" jdbcType="VARCHAR" />
+    <result column="create_by" property="createBy" jdbcType="INTEGER" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="update_by" property="updateBy" jdbcType="INTEGER" />
+    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+</mapper>

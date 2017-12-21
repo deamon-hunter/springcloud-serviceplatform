@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.gmsj.user.mapper.AuthInfoMapper">
+
+    <!-- 查询用户辅助信息 -->
+    <select id="selectAuthInfo" parameterType="Long" resultType="com.gmsj.core.business.vo.user.AuthInfoVO">
+        SELECT
+            is_autoaym,
+            is_xsm,
+            is_store,
+            u.is_assess,
+            u.credit_line
+        FROM tbl_auth_info ai INNER JOIN tbl_user u ON u.id = ai.user_id
+        WHERE ai.user_id = #{userId}
+    </select>
+</mapper>

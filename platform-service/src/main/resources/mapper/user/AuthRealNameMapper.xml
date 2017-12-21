@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.gmsj.user.mapper.AuthRealNameMapper">
+
+    <!-- 查询用户实名信息 -->
+    <select id="selectRealNameInfo" parameterType="Long" resultType="Map">
+        select name, id_card_number idCardNumber
+        from tbl_auth_realname where user_id = #{id}
+    </select>
+</mapper>

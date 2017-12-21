@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.gmsj.risk.mapper.RiskManagementMapper" >
+  <resultMap id="BaseResultMap" type="com.gmsj.risk.model.RiskManagement" >
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="user_id" property="userId" jdbcType="BIGINT" />
+    <result column="xsm_pass" property="xsmPass" jdbcType="BIT" />
+    <result column="black_list_pass" property="blackListPass" jdbcType="BIT" />
+    <result column="br_black_list_pass" property="brBlackListPass" jdbcType="BIT" />
+    <result column="xsm_order_pass" property="xsmOrderPass" jdbcType="BIT" />
+    <result column="br_info_verify" property="brInfoVerify" jdbcType="BIT" />
+    <result column="zmxy_score" property="zmxyScore" jdbcType="INTEGER" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+</mapper>

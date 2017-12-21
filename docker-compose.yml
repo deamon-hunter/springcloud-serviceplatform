@@ -1,0 +1,52 @@
+version: '2'
+services:
+  discovery:
+    image: coal/discovery
+    restart: always
+    ports:
+      - "8761:8761"
+  config:
+    image: coal/config
+    restart: always
+    ports:
+      - "8888:8888"
+    depends_on:
+      - discovery
+      - kafka
+  monitor:
+    image: coal/monitor
+    ports:
+      - "5000:5000"
+  zipkin:
+    image: coal/zipkin
+    ports:
+      - "9411:9411"
+  gateway:
+    image: coal/api-gateway
+    ports:
+      - "10000:10000"
+  user-service:
+    image: coal/user-service
+    depends_on:
+      - discovery
+      - config
+  loan-service:
+    image: coal/loan-service
+    depends_on:
+      - discovery
+      - config
+  operation-service:
+    image: coal/operation-service
+    depends_on:
+      - discovery
+      - config
+  thrid-party-service:
+    image: coal/third-party-service
+    depends_on:
+      - discovery
+      - config
+  accounting-service:
+    image: coal/accounting-service
+    depends_on:
+      - discovery
+      - config
