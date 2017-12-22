@@ -25,9 +25,17 @@ public class JsonResponseBodyAdvice extends AbstractMappingJacksonResponseBodyAd
 
     @Override
     protected void beforeBodyWriteInternal(MappingJacksonValue bodyContainer, MediaType contentType, MethodParameter returnType, ServerHttpRequest request, ServerHttpResponse response) {
-        if (!(bodyContainer.getValue() instanceof RestResp)) {
+//        if (!(bodyContainer.getValue() instanceof RestResp)  && !(bodyContainer.getValue() instanceof Json ) &&
+//                    !(bodyContainer.getValue() instanceof List)&&!(bodyContainer.getValue() instanceof SecurityConfiguration) &&
+//                        !(bodyContainer.getValue() instanceof UiConfiguration) ) {
+//            bodyContainer.setValue(RestResp.ok(bodyContainer.getValue()));
+//        }
+        String url= request.getURI().getPath();
+        if(!(url.equals("/v2/api-docs")  || url.equals("/swagger-resources") || url.equals("/swagger-resources/configuration/ui") || url.equals("/swagger-resources/configuration/security"))
+                && !(bodyContainer.getValue() instanceof RestResp)  ){
             bodyContainer.setValue(RestResp.ok(bodyContainer.getValue()));
         }
+
     }
 
 }

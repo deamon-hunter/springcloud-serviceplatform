@@ -1,80 +1,64 @@
 package com.gmsj.user.model;
 
-import com.gmsj.core.business.model.BaseModel;
 import lombok.Data;
-import lombok.EqualsAndHashCode;
 
-import javax.persistence.Column;
-import javax.persistence.Table;
-import java.math.BigDecimal;
+import java.util.Date;
+import javax.persistence.*;
 
 @Data
-@EqualsAndHashCode(callSuper = true)
-@Table(name = "tbl_user")
-public class User extends BaseModel {
-
-    /**
-     * 手机号
-     */
-    private String phone;
-
-    /**
-     * 用户昵称
-     */
-    @Column(name = "nick_name")
-    private String nickName;
+@Table(name = "sys_user")
+public class User {
+    @Id
+    @Column(name = "user_id")
+    private Long userId;
 
     /**
      * 用户名
      */
-    @Column(name = "user_name")
+    @Column(name = "username")
     private String userName;
+
+    private String name;
 
     /**
      * 密码
      */
     private String password;
 
+    @Column(name = "dept_id")
+    private Integer deptId;
 
     /**
-     * 可用额度
+     * 邮箱
      */
-    private BigDecimal amount;
+    private String email;
 
     /**
-     * 授信额度
+     * 手机号
      */
-    @Column(name = "credit_line")
-    private BigDecimal creditLine;
+    private String mobile;
 
     /**
-     * 是否有贷款权限（0：无权限  1：有权限）
+     * 状态 0:禁用，1:正常
      */
-    @Column(name = "is_auth")
-    private Boolean isAuth;
+    private Byte status;
 
     /**
-     * 是否评估（0：未评估 1：已评估）
+     * 创建用户id
      */
-    @Column(name = "is_assess")
-    private Boolean isAssess;
+    @Column(name = "user_id_create")
+    private Long userIdCreate;
 
     /**
-     * 账号状态（0：冻结  1：正常）
+     * 创建时间
      */
-    private Boolean status;
+    @Column(name = "gmt_create")
+    private Date gmtCreate;
 
     /**
-     * 综合评分
+     * 修改时间
      */
-    @Column(name = "score_integrated")
-    private Long scoreIntegrated;
+    @Column(name = "gmt_modified")
+    private Date gmtModified;
 
-    /**
-     * 资信等级
-     */
-    @Column(name = "credit_grade")
-    private Short creditGrade;
-
-    private String openId;
 }

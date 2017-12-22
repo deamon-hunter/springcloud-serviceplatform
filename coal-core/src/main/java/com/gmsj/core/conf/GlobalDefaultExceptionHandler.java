@@ -8,6 +8,7 @@ import com.gmsj.core.business.exception.BusinessException;
 import com.gmsj.core.business.exception.CommonErrorCode;
 import com.gmsj.core.business.exception.SystemException;
 import com.gmsj.core.business.model.RestResp;
+import com.gmsj.core.conf.security.exceptions.TokenNotExistException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.converter.HttpMessageNotReadableException;
 import org.springframework.validation.BindException;
@@ -169,7 +170,11 @@ public class GlobalDefaultExceptionHandler {
         log.error("SystemException，errorCode=" + errorCode, e);
         return RestResp.error(errorCode, e.getMessage());
     }
-
+    @ExceptionHandler({TokenNotExistException.class})
+    public RestResp<String> tokenNotExistException(TokenNotExistException e) {
+        log.error("token异常", e);
+        return RestResp.<String>error(CommonErrorCode.INNER_ERROR.getCode(), "token验证未通过。" + e.getMessage());
+    }
     @ExceptionHandler({Exception.class})
     public RestResp<String> allException(Exception e) {
         log.error("系统异常", e);

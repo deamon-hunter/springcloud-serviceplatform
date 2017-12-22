@@ -18,13 +18,13 @@
         <jdbcConnection driverClass="${jdbc.driverClass}" connectionURL="${jdbc.url}" userId="${jdbc.user}"
                         password="${jdbc.password}"/>
 
-        <javaModelGenerator targetPackage="com.gmsj.risk.fraud.model" targetProject="${targetJavaProject}"/>
-        <sqlMapGenerator targetPackage="mapper/risk" targetProject="${targetResourcesProject}"/>
-        <javaClientGenerator targetPackage="com.gmsj.risk.fraud.mapper" targetProject="${targetJavaProject}"
+        <javaModelGenerator targetPackage="com.gmsj.user.model" targetProject="${targetJavaProject}"/>
+        <sqlMapGenerator targetPackage="mapper/user" targetProject="${targetResourcesProject}"/>
+        <javaClientGenerator targetPackage="com.gmsj.user.mapper" targetProject="${targetJavaProject}"
                              type="XMLMAPPER"/>
 
 
-		<table tableName="tbl_loan_borrow" domainObjectName="LoanBorrow">
+		<table tableName="sys_user" domainObjectName="User">
 
         </table>
     </context>

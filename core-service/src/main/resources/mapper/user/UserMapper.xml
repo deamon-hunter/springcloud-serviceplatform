@@ -1,39 +1,17 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.gmsj.user.mapper.UserMapper">
-
-
-
-    <select id="selectMerchants" resultType="com.gmsj.core.business.vo.cigar.MerchantVO">
-        SELECT
-        u.id,
-        u.phone,
-        u.user_name,
-        u.credit_line,
-        u.id_card_number,
-        u.is_auth,
-        ue.store_name,
-        ue.store_address,
-        ue.store_number
-        FROM tbl_user u left join tbl_user_ext ue on u.id = ue.user_id
-        <where>
-            <if test="userName != null">
-                and u.user_name like concat('%', #{userName}, '%')
-            </if>
-            <if test="phone != null">
-                and u.phone = #{phone}
-            </if>
-        </where>
-    </select>
-    <select id="getUserByPhone" resultType="com.gmsj.user.model.User">
-        SELECT
-            u.id,
-            u.credit_line,
-            u.nick_name,
-            u.score_integrated,
-            u.amount,
-            u.status
-        FROM tbl_user u
-        WHERE u.phone = #{phone}
-    </select>
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.gmsj.user.mapper.UserMapper" >
+  <resultMap id="BaseResultMap" type="com.gmsj.user.model.User" >
+    <id column="user_id" property="userId" jdbcType="BIGINT" />
+    <result column="username" property="username" jdbcType="VARCHAR" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="password" property="password" jdbcType="VARCHAR" />
+    <result column="dept_id" property="deptId" jdbcType="INTEGER" />
+    <result column="email" property="email" jdbcType="VARCHAR" />
+    <result column="mobile" property="mobile" jdbcType="VARCHAR" />
+    <result column="status" property="status" jdbcType="TINYINT" />
+    <result column="user_id_create" property="userIdCreate" jdbcType="BIGINT" />
+    <result column="gmt_create" property="gmtCreate" jdbcType="TIMESTAMP" />
+    <result column="gmt_modified" property="gmtModified" jdbcType="TIMESTAMP" />
+  </resultMap>
 </mapper>

@@ -65,7 +65,13 @@ spring:
   jackson:
     default-property-inclusion: use_defaults
 
-
+gmsj:
+  security:
+    token:
+      secret: Z21zajIwMTcxMmRhdGF2aXN1YWw=
+eureka:
+  instance:
+    status-page-url: http://localhost:${server.port}/swagger-ui.html
 
 
 
