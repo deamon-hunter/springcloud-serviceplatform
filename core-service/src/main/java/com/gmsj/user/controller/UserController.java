@@ -33,11 +33,13 @@ public class UserController {
     }
 
 
-    @ApiOperation(value = "用户自行修改密码", notes = "3",  httpMethod = "POST")
+    @ApiOperation(value = "修改密码", notes = "3",  httpMethod = "POST")
     @RoleCheck
     @RequestMapping(path = "/modifyPwd", method = RequestMethod.POST, produces = APPLICATION_JSON_VALUE)
     public void modifyPwd(@RequestParam(value = "userName") String userName ,
                           @RequestParam(value = "password") String password, @RequestParam(value = "newPassword") String newPassword) {
         userService.modifyPwd(userName,password,newPassword);
     }
+
+
 }

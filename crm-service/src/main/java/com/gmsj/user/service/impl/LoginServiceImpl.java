@@ -10,7 +10,6 @@ import com.gmsj.user.service.UserService;
 import com.google.common.collect.ImmutableMap;
 import com.gmsj.core.business.vo.user.AuthInfoVO;
 import com.gmsj.core.business.vo.user.UserVO;
-import com.gmsj.core.util.JWTUtil;
 import org.apache.commons.codec.digest.DigestUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
