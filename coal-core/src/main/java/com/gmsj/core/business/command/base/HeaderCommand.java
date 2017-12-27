@@ -26,7 +26,6 @@ public class HeaderCommand {
 
     @NotNull
     @ApiModelProperty(value = "请求发起所属系统组")
-    @Value("${sys.group.code}")
     private String groupCode;
 
 }

@@ -7,6 +7,7 @@
  */
 package com.gmsj.core.business.command.base;
 
+import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
 import javax.validation.constraints.NotNull;

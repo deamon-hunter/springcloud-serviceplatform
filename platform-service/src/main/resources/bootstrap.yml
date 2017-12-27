@@ -65,7 +65,9 @@ spring:
   jackson:
     default-property-inclusion: use_defaults
 
-
+sys:
+  group:
+    code: platform
 
 
 
