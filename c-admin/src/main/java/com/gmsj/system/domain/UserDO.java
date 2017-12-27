@@ -13,7 +13,7 @@ public class UserDO implements Serializable {
     //
     private Long userId;
     // 用户名
-    private String username;
+    private String userName;
     // 用户真实姓名
     private String name;
     // 密码
@@ -55,15 +55,15 @@ public class UserDO implements Serializable {
     /**
      * 设置：用户名
      */
-    public void setUsername(String username) {
-        this.username = username;
+    public void setUsername(String userName) {
+        this.userName = userName;
     }
 
     /**
      * 获取：用户名
      */
     public String getUsername() {
-        return username;
+        return userName;
     }
 
 
@@ -201,7 +201,7 @@ public class UserDO implements Serializable {
     public String toString() {
         return "UserDO{" +
                 "userId=" + userId +
-                ", username='" + username + '\'' +
+                ", userName='" + userName + '\'' +
                 ", name='" + name + '\'' +
                 ", password='" + password + '\'' +
                 ", deptId=" + deptId +

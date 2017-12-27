@@ -5,17 +5,17 @@
 
 	<select id="get" resultType="com.gmsj.system.domain.UserDO">
 		select
-		`user_id`,`username`,`name`,`password`,`dept_id`,`email`,`mobile`,`status`,`user_id_create`,`gmt_create`,`gmt_modified`
+		`user_id`,`user_name`,`name`,`password`,`dept_id`,`email`,`mobile`,`status`,`user_id_create`,`gmt_create`,`gmt_modified`
 		from sys_user where user_id = #{value}
 	</select>
 
 	<select id="list" resultType="com.gmsj.system.domain.UserDO">
 		select
-		`user_id`,`username`,`name`,`password`,`dept_id`,`email`,`mobile`,`status`,`user_id_create`,`gmt_create`,`gmt_modified`
+		`user_id`,`user_name`,`name`,`password`,`dept_id`,`email`,`mobile`,`status`,`user_id_create`,`gmt_create`,`gmt_modified`
 		from sys_user
 		<where>
 			<if test="userId != null and userId != ''"> and user_id = #{userId} </if>
-			<if test="username != null and username != ''"> and username = #{username} </if>
+			<if test="username != null and username != ''"> and user_name = #{username} </if>
 			<if test="name != null and name != ''"> and name = #{name} </if>
 			<if test="password != null and password != ''"> and password = #{password} </if>
 			<if test="deptId != null and deptId != ''"> and dept_id = #{deptId} </if>
@@ -43,7 +43,7 @@
 		select count(*) from sys_user
 		<where>
 			<if test="userId != null and userId != ''"> and user_id = #{userId} </if>
-			<if test="username != null and username != ''"> and username = #{username} </if>
+			<if test="username != null and username != ''"> and user_name = #{username} </if>
 			<if test="name != null and name != ''"> and name = #{name} </if>
 			<if test="password != null and password != ''"> and password = #{password} </if>
 			<if test="deptId != null and deptId != ''"> and dept_id = #{deptId} </if>
@@ -60,7 +60,7 @@
 		useGeneratedKeys="true" keyProperty="userId">
 		insert into sys_user
 		(
-		`username`,
+		`user_name`,
 		`name`,
 		`password`,
 		`dept_id`,
@@ -89,7 +89,7 @@
 	<update id="update" parameterType="com.gmsj.system.domain.UserDO">
 		update sys_user
 		<set>
-			<if test="username != null">`username` = #{username}, </if>
+			<if test="username != null">`user_name` = #{username}, </if>
 			<if test="name != null">`name` = #{name}, </if>
 			<if test="password != null">`password` = #{password}, </if>
 			<if test="deptId != null">`dept_id` = #{deptId}, </if>
