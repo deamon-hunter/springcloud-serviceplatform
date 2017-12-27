@@ -23,9 +23,12 @@
         <javaClientGenerator targetPackage="com.gmsj.user.mapper" targetProject="${targetJavaProject}"
                              type="XMLMAPPER"/>
 
+		<table tableName="sys_dept" domainObjectName="Dept"/>
+        <table tableName="sys_group" domainObjectName="Group"/>
+        <table tableName="sys_log" domainObjectName="Log"/>
+        <table tableName="sys_menu" domainObjectName="Menu"/>
+        <table tableName="sys_role_menu" domainObjectName="RoleMenu"/>
+        <table tableName="sys_user_role" domainObjectName="UserRole"/>
 
-		<table tableName="sys_user" domainObjectName="User">
-
-        </table>
     </context>
 </generatorConfiguration>

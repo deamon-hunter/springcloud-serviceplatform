@@ -1,6 +1,6 @@
 package com.gmsj.user.mapper;
 
-import com.gmsj.cigar.model.RepaymentOrder;
+import com.gmsj.colliery.model.RepaymentOrder;
 import com.gmsj.core.business.vo.cigar.RepaymentOrderVO;
 import com.gmsj.core.lib.MyBaseMapper;
 import org.apache.ibatis.annotations.Mapper;

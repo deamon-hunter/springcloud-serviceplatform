@@ -153,3 +153,6 @@ logging:
         Connection: DEBUG
         Statement: DEBUG
 
+sys:
+  group:
+    code: admin

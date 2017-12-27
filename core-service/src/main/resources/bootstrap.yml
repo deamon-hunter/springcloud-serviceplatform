@@ -1,23 +1,31 @@
 server:
   port: 9000
 
+#mybatis
 mybatis:
-  mapper-locations: classpath*:mapper/**/*.xml
+  #指定目录类型别名扫描,多个包用;号分割
+#  type-aliases-package: com.gmsj.model
+  #指定mapper.xml的位置
+  mapper-locations: mapper/**/*Mapper.xml
+  typeAliasesPackage: com.gmsj.**.domain
   configuration:
+    #开启驼峰命名法转换字段支持,用于对象关系绑定
     map-underscore-to-camel-case: true
-    default-fetch-size: 100
-    default-statement-timeout: 30
-mapper:
-    mappers:
-        - com.gmsj.core.lib.MyBaseMapper
-    not-empty: false
-    identity: mysql
 
+
+##通用mapper
+mapper:
+  mappers:
+      - com.gmsj.core.lib.MyBaseMapper
+  not-empty: false
+  identity: MYSQL
+
+#分页插件
 pagehelper:
-    helperDialect: mysql
-    reasonable: true
-    supportMethodsArguments: false
-    params: count=countSql
+  helperDialect: mysql
+  reasonable: true
+  supportMethodsArguments: true
+  params: count=countSql
 
 spring:
   application:
@@ -69,9 +77,12 @@ spring:
 #  security:
 #    token:
 #      secret: Z21zajIwMTcxMmRhdGF2aXN1YWw=
-#eureka:
-#  instance:
-#    status-page-url: http://localhost:${server.port}/swagger-ui.html
+eureka:
+  instance:
+    status-page-url: http://localhost:${server.port}/swagger-ui.html
 
+sys:
+  group:
+    code: core
 
 

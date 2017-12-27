@@ -38,7 +38,7 @@ public class RoleServiceImpl implements RoleService {
     @Autowired
     private UserServiceImpl userServiceImpl;
 
-    @Cacheable(value = DEMO_CACHE_NAME, key = ROLE_ALL_KEY)
+    //@Cacheable(value = DEMO_CACHE_NAME, key = ROLE_ALL_KEY)
     @Override
     public List<RoleDO> list() {
         List<RoleDO> roles = new ArrayList<RoleDO>();
@@ -69,7 +69,7 @@ public class RoleServiceImpl implements RoleService {
         }
         return roles;
     }
-    @CacheEvict(value = DEMO_CACHE_NAME, key = ROLE_ALL_KEY)
+//    @CacheEvict(value = DEMO_CACHE_NAME, key = ROLE_ALL_KEY)
     @Transactional
     @Override
     public int save(RoleDO role) {
@@ -90,7 +90,7 @@ public class RoleServiceImpl implements RoleService {
         return count;
     }
 
-    @CacheEvict(value = DEMO_CACHE_NAME, key = ROLE_ALL_KEY)
+//    @CacheEvict(value = DEMO_CACHE_NAME, key = ROLE_ALL_KEY)
     @Transactional
     @Override
     public int remove(Long id) {

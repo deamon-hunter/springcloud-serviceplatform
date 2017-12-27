@@ -1,6 +1,6 @@
 package com.gmsj.core.util;
 
-import com.gmsj.core.business.constant.ConstantsDefinition;
+import com.gmsj.core.conf.ConstantsDefinition;
 import org.apache.commons.codec.binary.Base64;
 
 import java.io.UnsupportedEncodingException;

@@ -1,5 +1,7 @@
 package com.gmsj.user.service.impl;
 
+import com.gmsj.core.business.command.base.LoginCommand;
+import com.gmsj.core.business.command.user.NewPwdCommand;
 import com.gmsj.core.conf.security.Session;
 import com.gmsj.core.conf.security.TokenService;
 import com.gmsj.core.util.MD5Utils;
@@ -15,12 +17,6 @@ import tk.mybatis.mapper.entity.Example;
 
 import java.util.List;
 
-/**
- * 用户相关业务接口实现
- *
- * @author hongQiang tang
- * @version $Id: UserServiceImpl.java, v 0.1 2017年6月20日 下午4:07:38 Administrator Exp $
- */
 @Service
 @Transactional
 public class UserServiceImpl implements UserService {
@@ -31,17 +27,17 @@ public class UserServiceImpl implements UserService {
     private TokenService tokenService;
 
     @Override
-    public LoginTokenDataVO authenticate(String userName, String password) {
+    public LoginTokenDataVO authenticate(LoginCommand loginCommand) {
 
         Example example = new Example( User.class );
         Example.Criteria criteria = example.createCriteria();
-        criteria.andEqualTo( "userName", userName );
+        criteria.andEqualTo( "userName", loginCommand.getUserName() );
         List<User> users =userMapper.selectByExample(example);
         if (CollectionUtils.isEmpty(users)) {
             throw new RuntimeException("未找到登陆用户");
         }
         User user =users.get(0);
-        String passwordN = MD5Utils.encrypt(userName,password);
+        String passwordN = MD5Utils.encrypt(loginCommand.getUserName(),loginCommand.getPassword());
         if (! passwordN.equalsIgnoreCase(user.getPassword())) {
             throw new RuntimeException("密码验证不通过");
         }
@@ -60,22 +56,22 @@ public class UserServiceImpl implements UserService {
 
     @Override
     @Transactional
-    public void modifyPwd(String userName, String password, String newPassword) {
+    public int modifyPwd(NewPwdCommand newPwdCommand) {
         Example example = new Example( User.class );
         Example.Criteria criteria = example.createCriteria();
-        criteria.andEqualTo( "userName", userName );
+        criteria.andEqualTo( "userName", newPwdCommand.getUserName() );
         List<User> users =userMapper.selectByExample(example);
 
-        User user = users.get(0);
         if (CollectionUtils.isEmpty(users)) {
             throw new RuntimeException("未找到登陆用户");
         }
-        String passwordN = MD5Utils.encrypt(userName,password);
+        User user = users.get(0);
+
+        String passwordN = MD5Utils.encrypt(newPwdCommand.getUserName(),newPwdCommand.getPassword());
         if (! passwordN.equalsIgnoreCase(user.getPassword())) {
             throw new RuntimeException("密码验证不通过");
         }
-        user.setPassword( MD5Utils.encrypt(userName,newPassword));
-        userMapper.updateByPrimaryKey(user);
-
+        user.setPassword( MD5Utils.encrypt(newPwdCommand.getUserName(),newPwdCommand.getNewPassword()));
+        return userMapper.updateByPrimaryKey(user);
     }
 }

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.gmsj.cigar.mapper.LoanBorrowMapper" >
+<mapper namespace="com.gmsj.colliery.mapper.LoanBorrowMapper" >
 
     <select id="selectLoanBorrowList" resultType="com.gmsj.core.business.vo.cigar.LoanBorrowVO">
         SELECT

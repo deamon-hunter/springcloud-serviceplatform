@@ -1,97 +1,49 @@
 package com.gmsj.core.business.vo.user;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.gmsj.core.business.group.user.LoginByPass;
-import com.gmsj.core.business.group.user.LoginByPhone;
-import com.gmsj.core.business.group.user.Register;
+import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Pattern;
-import java.io.Serializable;
-import java.math.BigDecimal;
+import java.util.Date;
+import java.util.List;
 
 @Data
-public class UserVO implements Serializable {
-
-    private static final long serialVersionUID = 1L;
-
-    /**
-     * 用户ID
-     */
-    private Long id;
-
-    @NotNull(message = "openId不能为空", groups = {LoginByPhone.class, LoginByPass.class, Register.class})
-    private String openId;
-
-    /**
-     * 手机号码
-     */
-    @Pattern(message = "手机号码不符合规范", regexp = "^1[34578]\\d{9}$", groups = {LoginByPhone.class, LoginByPass.class, Register.class})
-    @NotNull(message = "手机号码不能为空", groups = {LoginByPhone.class, LoginByPass.class, Register.class})
-    private String phone;
-
-    /**
-     * 短信验证码
-     */
-    @Pattern(message = "必须是6位数字", regexp = "^\\d{6}$", groups = {LoginByPhone.class, Register.class})
-    @NotNull(message = "验证码不能为空", groups = {LoginByPhone.class, Register.class})
-    private String verifyCode;
-
-
-    /**
-     * 用户昵称
-     */
-    private String nickName;
-
-    /**
-     * 用户名
-     */
-    @JsonIgnore
-    private String userName;
-
-    /**
-     * 密码
-     */
-    @NotNull(message = "验证码不能为空", groups = {LoginByPass.class, Register.class})
+public class UserVO {
+    @ApiModelProperty(value = "用户id")
+    private Long userId;
+    
+    @ApiModelProperty(value = "用户名")
+    private String username;
+    
+    @ApiModelProperty(value = "用户真实姓名")
+    private String name;
+    
+    @ApiModelProperty(value = "密码")
     private String password;
 
-    /**
-     * 可用额度
-     */
-    private BigDecimal amount;
-
-    /**
-     * 授信额度
-     */
-    private BigDecimal creditLine;
-
-    private Boolean isAuth = false;
-
-
-    private AuthInfoVO authInfo;
-
-
-
-    private Boolean isNewUser = false;
-
-    /**
-     * 账号状态
-     */
-    @JsonIgnore
-    private Boolean status = false;
-
-    /**
-     * 综合评分
-     */
-    private Long scoreIntegrated;
-
-    /**
-     * 资信等级
-     */
-    private Short creditGrade;
-
-    private String apiKey;
-
+    @ApiModelProperty(value = "机构id")
+    private Long deptId;
+    @ApiModelProperty(value = "机构名称")
+    private String deptName;
+    
+    @ApiModelProperty(value = "邮箱")
+    private String email;
+    
+    @ApiModelProperty(value = "手机号")
+    private String mobile;
+    
+    @ApiModelProperty(value = "状态 0:禁用，1:正常")
+    private Integer status;
+    
+    @ApiModelProperty(value = "创建用户id")
+    private Long userIdCreate;
+    
+    @ApiModelProperty(value = "创建时间")
+    private Date gmtCreate;
+    
+    @ApiModelProperty(value = "修改时间")
+    private Date gmtModified;
+    
+    @ApiModelProperty(value = "角色id")
+    private List<Long> roleIds;
 
 }

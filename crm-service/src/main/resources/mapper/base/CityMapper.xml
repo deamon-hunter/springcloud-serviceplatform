@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.gmsj.base.mapper.CityMapper">
+<mapper namespace="com.gmsj.facilitator.mapper.CityMapper">
 
 
-    <select id="getCities" resultType="com.gmsj.base.model.City">
+    <select id="getCities" resultType="com.gmsj.facilitator.model.City">
         SELECT * FROM tbl_base_cities
     </select>
-    <select id="getProvinces" resultType="com.gmsj.base.model.Province">
+    <select id="getProvinces" resultType="com.gmsj.facilitator.model.Province">
         SELECT * FROM tbl_base_provinces
     </select>
-    <select id="getAreas" resultType="com.gmsj.base.model.Area">
+    <select id="getAreas" resultType="com.gmsj.facilitator.model.Area">
         SELECT * from tbl_base_areas
     </select>
 </mapper>

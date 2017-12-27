@@ -15,7 +15,7 @@ public class User {
     /**
      * 用户名
      */
-    @Column(name = "username")
+    @Column(name = "user_name")
     private String userName;
 
     private String name;

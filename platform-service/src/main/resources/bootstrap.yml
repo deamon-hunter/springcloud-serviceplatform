@@ -1,5 +1,5 @@
 server:
-  port: 9000
+  port: 9002
 
 mybatis:
   mapper-locations: classpath*:mapper/**/*.xml
@@ -22,7 +22,7 @@ pagehelper:
 spring:
   application:
     # 服务名称
-    name: core-service
+    name: platform-service
   datasource:
     # 使用druid数据源
     type: com.alibaba.druid.pool.DruidDataSource

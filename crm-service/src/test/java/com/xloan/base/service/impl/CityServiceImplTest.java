@@ -1,7 +1,7 @@
-package com.gmsj.base.service.impl;
+package com.gmsj.facilitator.service.impl;
 
 import com.gmsj.CoreApplication;
-import com.gmsj.base.service.CityService;
+import com.gmsj.facilitator.service.CityService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
