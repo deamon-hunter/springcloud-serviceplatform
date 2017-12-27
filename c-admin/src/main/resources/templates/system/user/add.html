@@ -3,7 +3,7 @@
 <meta charset="utf-8">
 <head th:include="include :: header"></head>
 <body class="gray-bg">
-	<div class="wrapper wrapper-content ">
+	<div class="wrapper wrapper-content">
 		<div class="row">
 			<div class="col-sm-12">
 				<div class="ibox float-e-margins">
@@ -59,16 +59,12 @@
 							<input type="hidden" name="roleIds" id="roleIds">
 							<div class="form-group">
 								<label class="col-sm-3 control-label">角色</label>
-								<div class="col-sm-8">
-									<label th:each="role:${roles}" class="checkbox-inline">
-										<input name="role" type="radio" th:value="${role.roleId}"
-										th:text="${role.roleName}">
-									</label>
+								<div class="col-sm-8" id="rolesLabel">
 								</div>
 							</div>
 							<div class="form-group">
 								<div class="col-sm-8 col-sm-offset-3">
-									<button type="submit" class="btn btn-primary">提交</button>
+									<button type="submit"   class="btn btn-primary">提交</button>
 								</div>
 							</div>
 						</form>

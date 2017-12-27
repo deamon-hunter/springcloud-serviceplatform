@@ -189,7 +189,7 @@ function getTreeData() {
 		type : "GET",
 		url : "/system/sysDept/tree",
 		success : function(tree) {
-			loadTree(tree);
+			loadTree(tree.data);
 		}
 	});
 }

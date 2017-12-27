@@ -101,4 +101,17 @@ public class RoleController extends BaseController {
 		}
 		return RestResp.error();
 	}
+	/**
+	 * 通过部门id查询角色
+	 * @param depetId
+	 * @return
+	 */
+	@RequiresPermissions("sys:role:role")
+	@RequestMapping(value = "/depetId",method = RequestMethod.POST)
+	@ResponseBody()
+	List<RoleDO> findByDepetId(Long depetId) {
+		List<RoleDO> roles = roleService.findByDepetId(depetId);
+		return roles;
+	}
+
 }

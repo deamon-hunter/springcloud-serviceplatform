@@ -131,4 +131,11 @@ public class RoleServiceImpl implements RoleService {
         return r;
     }
 
+    @Override
+    public List<RoleDO> findByDepetId(Long depetId) {
+        Example example = new Example(RoleDO.class);
+        Example.Criteria criteria = example.createCriteria();
+        criteria.andEqualTo("deptId", depetId);
+        return roleMapper.selectByExample(example);
+    }
 }

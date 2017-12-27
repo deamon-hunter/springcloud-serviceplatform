@@ -1,6 +1,7 @@
 // 以下为官方示例
 $().ready(function() {
 	validateRule();
+    loadUser();
 	// $("#signupForm").validate();
 });
 
@@ -9,6 +10,27 @@ $.validator.setDefaults({
 		update();
 	}
 });
+/**
+ * 填充表单
+ */
+function loadUser(){
+    var deptId= $("#deptId").val();
+    var userId=$('#userId').val();
+    //只有单个角色
+    var roleId=$('#roleIds').val();
+    //通过部门id 查询次用户能够选择的角色
+    $.ajax({
+        type : "post",
+        data: {depetId:deptId},
+        dataType: 'json',
+        url : "/sys/role/depetId",
+        success : function(roles) {
+            addRole(roles.data,roleId);
+            //回显角色
+
+        }
+    });
+}
 function update() {
 	$("#roleIds").val(getCheckedRoles());
 	$.ajax({
@@ -36,15 +58,16 @@ function update() {
 
 }
 function getCheckedRoles() {
-	var adIds = "";
-	$("input:checkbox[name=role]:checked").each(function(i) {
-		if (0 == i) {
-			adIds = $(this).val();
-		} else {
-			adIds += ("," + $(this).val());
-		}
-	});
-	return adIds;
+    //适合获取单选的值
+    var adIds = $("input[name='role']:checked").val();
+    // $("input:checkbox[name=role]:checked").each(function(i) {
+    // 	if (0 == i) {
+    // 		adIds = $(this).val();
+    // 	} else {
+    // 		adIds += ("," + $(this).val());
+    // 	}
+    // });
+    return adIds;
 }
 function setCheckedRoles() {
 	var roleIds = $("#roleIds").val();
@@ -68,7 +91,17 @@ function validateRule() {
 			},
 			username : {
 				required : true,
-				minlength : 2
+				minlength : 2,
+                remote : {
+                    url : "/sys/user/exit", // 后台处理程序
+                    type : "post", // 数据发送方式
+                    dataType : "json", // 接受数据格式
+                    data : { // 要传递的数据
+                        username : function() {
+                            return $("#username").val();
+                        }
+                    }
+                }
 			},
 			password : {
 				required : true,
@@ -96,7 +129,8 @@ function validateRule() {
 			},
 			username : {
 				required : icon + "请输入您的用户名",
-				minlength : icon + "用户名必须两个字符以上"
+				minlength : icon + "用户名必须两个字符以上",
+                remote : icon + "用户名已经存在"
 			},
 			password : {
 				required : icon + "请输入您的密码",
@@ -122,4 +156,29 @@ var openDept = function(){
 function loadDept( deptId,deptName){
 	$("#deptId").val(deptId);
 	$("#deptName").val(deptName);
+}
+/**
+ * 通过传入角色数组 生成对应的iput框
+ * @param roles
+ */
+function addRole(roles) {
+    $("#rolesLabel").empty();
+    for(i=0;i<roles.length;i++){
+        var role=roles[i];
+        var createobj = $(" <label class='checkbox-inline'> <input name='role'  type='radio' value='"+role.roleId+"' text='"+role.roleName+"'>"+role.roleName +"</label>"); //把div定义为变量createobj
+        $("#rolesLabel").append(createobj); //把createobj这个变量追加到html中的'body'里
+    }
+}
+function addRole(roles,roleId) {
+    $("#rolesLabel").empty();
+    for(i=0;i<roles.length;i++){
+        var role=roles[i];
+        var createobj;
+        if(roleId==role.roleId){
+            createobj= $(" <label class='checkbox-inline'> <input name='role'  type='radio' checked='checked' value='"+role.roleId+"' text='"+role.roleName+"'>"+role.roleName +"</label>"); //把div定义为变量createobj
+        }else{
+            createobj= $(" <label class='checkbox-inline'> <input name='role'  type='radio' value='"+role.roleId+"' text='"+role.roleName+"'>"+role.roleName +"</label>"); //把div定义为变量createobj
+        }
+        $("#rolesLabel").append(createobj); //把createobj这个变量追加到html中的'body'里
+    }
 }

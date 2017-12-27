@@ -8,15 +8,16 @@ $.validator.setDefaults({
 	}
 });
 function getCheckedRoles() {
-	var adIds = "";
-	$("input:checkbox[name=role]:checked").each(function(i) {
-		if (0 == i) {
-			adIds = $(this).val();
-		} else {
-			adIds += ("," + $(this).val());
-		}
-	});
-	return adIds;
+    //适合获取单选的值
+    var adIds = $("input[name='role']:checked").val();
+    // $("input:checkbox[name=role]:checked").each(function(i) {
+    // 	if (0 == i) {
+    // 		adIds = $(this).val();
+    // 	} else {
+    // 		adIds += ("," + $(this).val());
+    // 	}
+    // });
+    return adIds;
 }
 function save() {
 	$("#roleIds").val(getCheckedRoles());
@@ -53,17 +54,7 @@ function validateRule() {
 			},
 			username : {
 				required : true,
-				minlength : 2,
-				remote : {
-					url : "/sys/user/exit", // 后台处理程序
-					type : "post", // 数据发送方式
-					dataType : "json", // 接受数据格式
-					data : { // 要传递的数据
-						username : function() {
-							return $("#username").val();
-						}
-					}
-				}
+				minlength : 2
 			},
 			password : {
 				required : true,
@@ -91,8 +82,7 @@ function validateRule() {
 			},
 			username : {
 				required : icon + "请输入您的用户名",
-				minlength : icon + "用户名必须两个字符以上",
-				remote : icon + "用户名已经存在"
+				minlength : icon + "用户名必须两个字符以上"
 			},
 			password : {
 				required : icon + "请输入您的密码",
@@ -119,4 +109,16 @@ var openDept = function(){
 function loadDept( deptId,deptName){
 	$("#deptId").val(deptId);
 	$("#deptName").val(deptName);
+}
+/**
+ * 通过传入角色数组 生成对应的iput框
+ * @param roles
+ */
+function addRole(roles) {
+    $("#rolesLabel").empty();
+    for(i=0;i<roles.length;i++){
+        var role=roles[i];
+        var createobj = $(" <label class='checkbox-inline'> <input name='role'  type='radio' value='"+role.roleId+"' text='"+role.roleName+"'>"+role.roleName +"</label>"); //把div定义为变量createobj
+        $("#rolesLabel").append(createobj); //把createobj这个变量追加到html中的'body'里
+    }
 }

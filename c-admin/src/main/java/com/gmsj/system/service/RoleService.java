@@ -21,4 +21,10 @@ public interface RoleService {
 	List<RoleDO> list(Long userId);
 
 	int batchremove(Long[] ids);
+	/**
+	 * 通过部门id查询角色信息
+	 * @param depetId
+	 * @return
+	 */
+	List<RoleDO> findByDepetId(Long depetId);
 }
