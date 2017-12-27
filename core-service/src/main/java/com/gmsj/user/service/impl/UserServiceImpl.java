@@ -33,6 +33,7 @@ public class UserServiceImpl implements UserService {
         Example.Criteria criteria = example.createCriteria();
         criteria.andEqualTo( "userName", loginCommand.getUserName() );
         List<User> users =userMapper.selectByExample(example);
+
         if (CollectionUtils.isEmpty(users)) {
             throw new RuntimeException("未找到登陆用户");
         }
