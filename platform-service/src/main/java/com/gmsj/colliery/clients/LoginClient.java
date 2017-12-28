@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 /**
  * @author Ovrille
- * @date 2017/10/17
+ * @date 2017/12/27
  */
 @FeignClient("core-service")
 public interface LoginClient {

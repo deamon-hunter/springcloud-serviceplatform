@@ -17,7 +17,7 @@ import org.springframework.web.servlet.mvc.method.annotation.AbstractMappingJack
  * 统一处理所有返回值，对其进行封装
  *
  * @author Ovrille
- * @date 2017/03/04
+ * @date 2017/12/04
  */
 @ControllerAdvice
 public class JsonResponseBodyAdvice extends AbstractMappingJacksonResponseBodyAdvice {

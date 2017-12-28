@@ -14,15 +14,14 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RequestMapping("/test")
 @RestController
-public class Test {
+public class LoginController {
     @Autowired
     private LoginClient loginClient;
 
     @PostMapping("/in")
     @Command
     RestResp<LoginTokenDataVO> login(@RequestBody LoginCommand command) {
-        //command.setGroupCode(GROUP_CODE);
-        System.out.println(command.getGroupCode());
+
         return loginClient.loginIn(command);
     }
 

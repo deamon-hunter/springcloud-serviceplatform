@@ -1,5 +1,5 @@
 /**
- * 创建人： Hehaiyang
+ * 创建人： Ovrille
  * 包名字： com.gmsj.core.lib
  * 创建时间：2017/12/27
  * 描述：TODO
@@ -8,7 +8,7 @@
 package com.gmsj.core.lib;
 
 /**
- *创建人： Hehaiyang 
+ *创建人： Ovrille
  *包名字： com.gmsj.core.lib
  *创建时间：2017/12/27
   *类名：Command

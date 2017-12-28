@@ -11,7 +11,7 @@ import org.springframework.context.annotation.Primary;
 
 /**
  * @author Ovrille
- * @date 2017/08/23
+ * @date 2017/12/23
  */
 //@Configuration
 public class FeignClientConf {

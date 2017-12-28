@@ -5,7 +5,7 @@ import com.gmsj.core.business.command.user.NewPwdCommand;
 import com.gmsj.user.vo.LoginTokenDataVO;
 
 /**
- *创建人： Hehaiyang 
+ *创建人： Ovrille
  *包名字： com.gmsj.user.controller
  *创建时间：2017/12/22
   *类名：UserService

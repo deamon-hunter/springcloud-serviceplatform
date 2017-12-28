@@ -9,7 +9,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 /**
- * 创建人： Hehaiyang
+ * 创建人： Ovrille
  * 包名字： com.gmsj.core.conf
  * 创建时间：2017/12/27
  *  *类名：CommandAspet
