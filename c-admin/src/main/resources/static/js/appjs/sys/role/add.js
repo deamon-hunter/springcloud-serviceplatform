@@ -26,7 +26,7 @@ function getMenuTreeData() {
 		type : "GET",
 		url : "/sys/menu/tree",
 		success : function(menuTree) {
-			loadMenuTree(menuTree);
+			loadMenuTree(menuTree.data);
 		}
 	});
 }
