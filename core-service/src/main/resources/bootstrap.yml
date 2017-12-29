@@ -85,4 +85,14 @@ sys:
   group:
     code: core
 
-
+logging:
+  level:
+    root: warn
+    com:
+      gmsj: debug
+    org:
+      springframework: info
+    java:
+      sql:
+        Connection: DEBUG
+        Statement: DEBUG

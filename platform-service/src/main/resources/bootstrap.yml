@@ -68,6 +68,17 @@ spring:
 sys:
   group:
     code: platform
+logging:
+  level:
+    root: info
+    com:
+      gmsj: debug
+    org:
+      springframework: info
+    java:
+      sql:
+        Connection: DEBUG
+        Statement: DEBUG
 
 
 
